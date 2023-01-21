@@ -4,10 +4,10 @@ const AuthComponent = () => {
     const { data, loading, error, getAuth } = useOAuth2({
       authorizeUrl: "http://192.168.1.147:3001/login/oauth2/auth",
       clientId: "10000000000001",
-      redirectUri: `http://localhost:3001`,
+      redirectUri: `${document.location.origin}/callback`,
       scope: "",
       responseType: "code",
-      exchangeCodeForTokenServerURL: "http://localhost:7071/api/codeToTokenExchanger",
+      exchangeCodeForTokenServerURL: "/api/codeToTokenExchanger",
       exchangeCodeForTokenMethod: "POST",
       onSuccess: (payload) => console.log("Success", payload),
       onError: (error_) => console.log("Error", error_)

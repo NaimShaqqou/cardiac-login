@@ -23,8 +23,10 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 			method: 'POST',
 		}
 	);
+    
+    // console.log("data = " + await data.json())
 
-    context.res = data.json;
+    context.res = { body: await data.json() };
 };
 
 export default httpTrigger;
