@@ -9,11 +9,11 @@ const AuthComponent = () => {
       responseType: "code",
       exchangeCodeForTokenServerURL: "/api/codeToTokenExchanger",
       exchangeCodeForTokenMethod: "POST",
-      onSuccess: (payload) => console.log("Success", payload),
-      onError: (error_) => console.log("Error", error_)
+      onSuccess: (payload) => console.error("Success", payload),
+      onError: (error_) => console.error("Error", error_)
     });
   
-    const isLoggedIn = Boolean(data?.access_token); // or whatever...
+    const isLoggedIn = Boolean(data?.access_token);
   
     if (error) {
       return <div>Error</div>;
