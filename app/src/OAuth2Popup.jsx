@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-// import { queryToObject } from './tools';
+import { queryToObject } from './tools';
 
 const OAUTH_STATE_KEY = 'react-use-oauth2-state-key';
 const OAUTH_RESPONSE = 'react-use-oauth2-response';
@@ -7,11 +7,6 @@ const OAUTH_RESPONSE = 'react-use-oauth2-response';
 const checkState = (receivedState) => {
 	const state = sessionStorage.getItem(OAUTH_STATE_KEY);
 	return state === receivedState;
-};
-
-const queryToObject = (query) => {
-	const parameters = new URLSearchParams(query);
-	return Object.fromEntries(parameters.entries());
 };
 
 const OAuth2Popup = (props) => {

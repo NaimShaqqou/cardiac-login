@@ -24,7 +24,16 @@ const AuthComponent = () => {
     }
   
     if (isLoggedIn) {
-      return <pre>{JSON.stringify(data)}</pre>;
+        return (
+            <div>
+                <p>access_token: {data?.access_token}</p>
+                <p>token_type: {data?.token_type}</p>
+                <p>user: {JSON.stringify(data?.user)}</p>
+                <p>refresh_token: {data?.refresh_token}</p>
+                <p>expires_in: {data?.expires_in}</p>
+                <p>canvas_region: {data?.canvas_region}</p>
+            </div>
+        );
     }
   
     return (
