@@ -1,4 +1,4 @@
-import { useOAuth2 } from "@tasoskakour/react-use-oauth2";
+import useOAuth2 from "./useOAuth2";
 
 const AuthComponent = () => {
     const { data, loading, error, getAuth } = useOAuth2({
@@ -7,7 +7,7 @@ const AuthComponent = () => {
       redirectUri: `${document.location.origin}/callback`,
       scope: "",
       responseType: "code",
-      exchangeCodeForTokenServerURL: "http://192.168.1.147:3001/login/oauth2/token",
+      exchangeCodeForTokenServerURL: "http://localhost:7071/api/codeToTokenExchanger",
       exchangeCodeForTokenMethod: "POST",
       onSuccess: (payload) => console.log("Success", payload),
       onError: (error_) => console.log("Error", error_)
