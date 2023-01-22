@@ -25,5 +25,8 @@
     "@azure/static-web-apps-cli": "^1.0.6",
     "azure-functions-core-tools": "^3.0.4899",
     "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "mssql": "^9.1.1"
   }
 }

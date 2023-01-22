@@ -1,3 +1,4 @@
+import React from "react";
 import useOAuth2 from "./useOAuth2";
 
 const AuthComponent = () => {
@@ -13,6 +14,18 @@ const AuthComponent = () => {
       onError: (error_) => console.error("Error", error_)
     });
   
+    const [err, setErr] = React.useState("");
+    const updateStudent = async () => {
+      console.log(data)
+      const res = await fetch("/api/addUserToDatabase", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => setErr(data.error))
+    }
+  
     const isLoggedIn = Boolean(data?.access_token);
   
     if (error) {
@@ -24,6 +37,7 @@ const AuthComponent = () => {
     }
   
     if (isLoggedIn) {
+        updateStudent();
         return (
             <div>
                 <p>access_token: {data?.access_token}</p>
