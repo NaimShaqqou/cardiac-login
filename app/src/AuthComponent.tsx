@@ -17,7 +17,7 @@ const AuthComponent = () => {
     const [err, setErr] = React.useState("");
     const updateStudent = async () => {
       console.log(data)
-      const res = await fetch("/api/addUserToDatabase", {
+      await fetch("/api/addUserToDatabase", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -40,6 +40,7 @@ const AuthComponent = () => {
         updateStudent();
         return (
             <div>
+                <p>error: {err}</p>
                 <p>access_token: {data?.access_token}</p>
                 <p>token_type: {data?.token_type}</p>
                 <p>user: {JSON.stringify(data?.user)}</p>
